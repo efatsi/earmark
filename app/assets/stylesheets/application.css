@@ -13,11 +13,8 @@
  *= require bootstrap.min
  */
 
-html {
-  width: 320px;
-}
-
 .center {
+  width: 320px;
   margin: 0 auto 20px;
   text-align: center;
   background: lightblue;
