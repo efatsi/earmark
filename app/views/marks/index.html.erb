@@ -1,8 +1,7 @@
-<h4>
-  Goal: <%= @goal.present? ? @goal : link_to("Add Goal", new_goal_path) %>
-  <br>
-  Saved: $<%= @marks.sum(&:amount) %>
-</h4>
+<h4>Goal: <%= @goal.present? ? @goal : link_to("Add Goal", new_goal_path) %></h4>
+<h4>To Go: $<%= @goal.amount - @marks.sum(&:amount) %></h4>
+<h4>Saved: $<%= @marks.sum(&:amount) %></h4>
+
 
 <%= link_to "Earmark", new_mark_path, :class => 'btn btn-primary' %>
 <div class='new-mark-form'>
