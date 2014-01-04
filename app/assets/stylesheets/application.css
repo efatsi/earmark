@@ -13,6 +13,10 @@
  *= require bootstrap.min
  */
 
+html {
+  width: 320px;
+}
+
 .center {
   margin: 0 auto 20px;
   text-align: center;
