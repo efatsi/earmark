@@ -12,11 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min
+//= require angular-resource.min
+//= require app
 //= require_tree .
-
-$('.btn-primary').click(function(e) {
-  e.preventDefault();
-
-  $('.new-mark-form').slideToggle();
-})

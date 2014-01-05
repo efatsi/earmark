@@ -1,5 +1,9 @@
 Earmark::Application.routes.draw do
-  root to: 'marks#index'
+  root to: 'goals#show'
   resources :goals
   resources :marks
+
+  scope :api do
+    resources :marks
+  end
 end

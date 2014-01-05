@@ -1,4 +1,10 @@
 class GoalsController < ApplicationController
+  def show
+    @goal  = Goal.first
+    @mark  = Mark.new
+    @marks = Mark.all.reverse
+  end
+
   def new
     @goal = Goal.new
   end

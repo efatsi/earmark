@@ -1,16 +1,14 @@
 class MarksController < ApplicationController
   def index
-    @goal = Goal.first
-    @mark = Mark.new
-    @marks = Mark.all.reverse
+    render json: Mark.all.reverse
   end
 
   def create
     @mark = Mark.new(mark_params)
     if @mark.save
-      redirect_to root_url
+      render json: {success: true, mark: @mark}
     else
-      render :new
+      render json: {success: false}
     end
   end
 
