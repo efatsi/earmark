@@ -68,3 +68,7 @@ ul {
   color: red;
   margin-top: 10px;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}

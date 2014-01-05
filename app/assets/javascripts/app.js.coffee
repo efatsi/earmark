@@ -39,9 +39,15 @@ Earmark.controller 'MarkCtrl', ['$scope', 'Mark', ($scope, Mark) ->
     $('.error').slideToggle();
 
   $scope.saved = ->
+    "Saved: $#{$scope.savedAmount()}"
+
+  $scope.savedAmount = ->
     amount = (m) ->
       m.amount
 
     $scope.marks.map(amount).reduce (a,b) ->
       a + b
+
+  $scope.togo = (goal) ->
+    "To Go: $#{goal - $scope.savedAmount()}"
 ]

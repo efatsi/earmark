@@ -1,7 +1,7 @@
 <div ng-controller='MarkCtrl'>
   <h4>Goal: <%= @goal.present? ? @goal : link_to("Add Goal", new_goal_path) %></h4>
-  <h4>To Go: ${{<%= @goal.amount %> - saved()}}</h4>
-  <h4>Saved: ${{saved()}}</h4>
+  <h4 ng-bind='togo(<%= @goal.amount %>)'>To Go: $<%= @goal.amount %></h4>
+  <h4 ng-bind='saved()'>Saved: $0.00</h4>
 
   <a ng-href='' ng-click='toggleForm()' class='btn btn-primary'>Earmark</a>
   <div class='new-mark-form'>
