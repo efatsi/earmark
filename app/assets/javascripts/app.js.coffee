@@ -37,4 +37,11 @@ Earmark.controller 'MarkCtrl', ['$scope', 'Mark', ($scope, Mark) ->
 
   $scope.toggleErrror = ->
     $('.error').slideToggle();
+
+  $scope.saved = ->
+    amount = (m) ->
+      m.amount
+
+    $scope.marks.map(amount).reduce (a,b) ->
+      a + b
 ]
