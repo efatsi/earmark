@@ -1,4 +1,4 @@
-Earmark.factory('Mark', function($resource) {
+Earmark.factory('Mark', ['$resource', function($resource) {
   Mark = $resource('/api/marks')
 
   Mark.all = Mark.query()
@@ -20,4 +20,4 @@ Earmark.factory('Mark', function($resource) {
   }
 
   return Mark
-})
+}])

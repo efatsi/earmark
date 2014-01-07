@@ -1,4 +1,4 @@
-Earmark.controller('MarkCtrl', function($scope, Mark) {
+Earmark.controller('MarkCtrl', ['$scope', 'Mark', function($scope, Mark) {
   $scope.marks = Mark.all
 
   $scope.newMark = function() {
@@ -41,4 +41,4 @@ Earmark.controller('MarkCtrl', function($scope, Mark) {
   $scope.togo = function(goal) {
     return "To Go: $" + (goal - Mark.totalAmount($scope.marks))
   }
-})
+}])
