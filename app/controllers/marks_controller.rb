@@ -1,6 +1,6 @@
 class MarksController < ApplicationController
   def index
-    render json: Mark.all.reverse
+    render json: Mark.all.sort_by(&:id).reverse
   end
 
   def create
