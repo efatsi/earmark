@@ -1,20 +1,14 @@
 class GoalsController < ApplicationController
   def show
-    @goal  = Goal.first
-    @mark  = Mark.new
-    @marks = Mark.all.reverse
-  end
-
-  def new
-    @goal = Goal.new
+    render json: Goal.first
   end
 
   def create
     @goal = Goal.new(goal_params)
     if @goal.save
-      redirect_to root_url
+      render json: {success: true, mark: @goal}
     else
-      render :new
+      render json: {success: false}
     end
   end
 

@@ -1,18 +1,25 @@
-Earmark.controller('MarkCtrl', ['$scope', 'Mark', function($scope, Mark) {
+Earmark.controller('MarkCtrl', ['$scope', 'Mark', 'Goal', function($scope, Mark, Goal) {
+  $scope.goal = Goal.get()
+
   $scope.marks = Mark.all
+  $scope.mark = {}
 
   $scope.newMark = function() {
-    markBuild = Mark.build($scope.mark)
+    mark = Mark.build($scope.mark)
 
-    markBuild.$save(function(response) {
+    mark.$save(function(response) {
       if (response.success) {
-        Mark.all = [markBuild.mark].concat(Mark.all)
+        Mark.all = [mark.mark].concat(Mark.all)
         $scope.marks = Mark.all
         $scope.clearForm()
       }
       else {
         $scope.showError()
       }
+    },
+
+    function(error) {
+      $scope.showError()
     })
   }
 
@@ -35,10 +42,10 @@ Earmark.controller('MarkCtrl', ['$scope', 'Mark', function($scope, Mark) {
   }
 
   $scope.saved = function() {
-    return "Saved: $" + Mark.totalAmount($scope.marks)
+    return Mark.totalAmount($scope.marks)
   }
 
-  $scope.togo = function(goal) {
-    return "To Go: $" + (goal - Mark.totalAmount($scope.marks))
+  $scope.togo = function() {
+    return $scope.goal.amount - $scope.saved()
   }
 }])

@@ -1,15 +1,16 @@
 <div ng-controller='MarkCtrl'>
-  <h4>Goal: <%= @goal.present? ? @goal : link_to("Add Goal", new_goal_path) %></h4>
-  <h4 ng-bind='togo(<%= @goal.amount %>)'>To Go: $<%= @goal.amount %></h4>
-  <h4 ng-bind='saved()'>Saved: $0.00</h4>
+  <h4>Goal: {{goal.display()}}</h4>
+  <h4>To Go: ${{togo()}}</h4>
+  <h4>Saved: ${{saved()}}</h4>
 
   <a ng-href='' ng-click='toggleForm()' class='btn btn-primary'>Earmark</a>
   <div class='new-mark-form'>
-    <div class='error'>Something's wrong with that.</div>
     <form ng-submit='newMark()'>
-      <label class="string">Description</label>
+      <div class='error'>Something's wrong with that.</div>
+
+      <label>Description</label>
       <input ng-model='mark.description' class='string form-control' type='text'>
-      <label class="float">Amount</label>
+      <label>Amount</label>
       <input ng-model='mark.amount' class='numeric float form-control' type='number'>
 
       <div class="btn-group">
