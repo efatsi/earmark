@@ -6,15 +6,15 @@ Earmark.config(['$httpProvider', '$routeProvider', function($httpProvider, $rout
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
 
   $routeProvider
-    .when('/new', {
-      templateUrl: '../assets/new.html',
-      controller: 'GoalCtrl'
-    })
     .when('/', {
       templateUrl: '../assets/marks.html',
       controller: 'MarkCtrl'
-    }).
-    otherwise({
+    })
+    .when('/transfer', {
+      templateUrl: '../assets/transfer.html',
+      controller: 'TransferCtrl'
+    })
+    .otherwise({
       redirectTo: '/'
     })
 }])

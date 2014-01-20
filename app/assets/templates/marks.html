@@ -1,30 +1,35 @@
-<div ng-controller='MarkCtrl'>
-  <h4>Goal: {{goal.display()}}</h4>
-  <h4>To Go: ${{togo()}}</h4>
-  <h4>Saved: ${{saved()}}</h4>
+<ul class="nav nav-pills nav-custom-justified">
+  <li class="active"><a ng-href='#/'>Home</a></li>
+  <li><a ng-href='#/transfer'>Transfer</a></li>
+</ul>
 
-  <a ng-href='' ng-click='toggleForm()' class='btn btn-primary'>Earmark</a>
-  <div class='new-mark-form'>
-    <form ng-submit='newMark()'>
-      <div class='error'>Something's wrong with that.</div>
+<h4>Goal: {{goal.display()}}</h4>
+<h4>To Go: ${{togo()}}</h4>
+<h4>Saved: ${{saved()}}</h4>
 
-      <label>Description</label>
-      <input ng-model='mark.description' class='string form-control' type='text'>
-      <label>Amount</label>
-      <input ng-model='mark.amount' class='numeric float form-control' type='number'>
+<a ng-href='' ng-click='toggleForm()' class='btn btn-primary'>Earmark</a>
+<div class='new-mark-form'>
+  <form ng-submit='newMark()'>
+    <div class='error'>Something's wrong with that.</div>
 
-      <div class="btn-group">
-        <input class='btn btn-success wide' type='submit'>
-        <btn ng-click='clearForm()' class='btn btn-danger wide'>Cancel</btn>
-      </div>
+    <label>Description</label>
+    <input ng-model='mark.description' class='string form-control' type='text'>
+    <label>Amount</label>
+    <input ng-model='mark.amount' class='numeric float form-control' type='number'>
 
-    </form>
-  </div>
+    <div class="btn-group">
+      <input class='btn btn-success' type='submit'>
+      <btn ng-click='clearForm()' class='btn btn-danger'>Cancel</btn>
+    </div>
 
-  <h4 class='m-top'>Earmarks</h4>
-  <ul>
-    <li ng-repeat='mark in marks'>
-      {{mark.description}} - ${{mark.amount}}
-    </li>
-  </ul>
+  </form>
 </div>
+
+<h4 class='m-top'>Earmarks</h4>
+<ul>
+  <li ng-repeat='mark in marks'>
+    <div ng-class="{saved: mark.saved}">
+      {{mark.description}} - ${{mark.amount}}
+    </div>
+  </li>
+</ul>

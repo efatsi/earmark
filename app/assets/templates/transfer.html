@@ -1,0 +1,17 @@
+<ul class="nav nav-pills nav-custom-justified">
+  <li><a ng-href='#/'>Home</a></li>
+  <li class="active"><a ng-href='#/transfer'>Transfer</a></li>
+</ul>
+
+<h4>Untransfered Amount: ${{unsaved()}}</h4>
+
+<a ng-href='' ng-click='transfer()' class='btn btn-primary'>Transfer ${{unsaved()}}</a>
+
+<h4 class='m-top'>Earmarks</h4>
+<ul>
+  <li ng-repeat='mark in marks'>
+    <div ng-class="{saved: mark.saved}">
+      {{mark.description}} - ${{mark.amount}}
+    </div>
+  </li>
+</ul>

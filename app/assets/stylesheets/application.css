@@ -27,6 +27,35 @@ h3.no-margin {
   margin: 0;
 }
 
+hr.no-bottom {
+  margin-bottom: 0px;
+}
+
+.nav-custom-justified>li {
+  width: 159px;
+}
+
+.nav-pills>li+li.no-margin {
+  margin-left: 0;
+}
+
+.nav.nav-pills>li>a {
+  border-radius: 0px;
+  background: #eee;
+}
+
+.nav.nav-pills>li.active>a {
+  border-radius: 0px;
+  background: none;
+  color: black;
+}
+
+.nav.nav-pills>li.active>a:hover {
+  background: none;
+  color: black;
+  cursor: default;
+}
+
 input.string, input.numeric {
   width: 200px;
   border-radius: 7px;
@@ -43,6 +72,12 @@ input.string, input.numeric {
 
 .btn-primary {
   margin: 10px 0;
+}
+
+.navItem {
+  display: inline;
+  text-align: center;
+  width: 50%;
 }
 
 form {
@@ -67,6 +102,10 @@ ul {
   display: none;
   color: red;
   margin-top: 10px;
+}
+
+.saved {
+  color: green;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

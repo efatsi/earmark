@@ -1,6 +1,10 @@
 class MarksController < ApplicationController
   def index
-    render json: Mark.all.sort_by(&:id).reverse
+    if params[:query] == 'unsaved'
+      render json: Mark.unsaved.sort_by(&:id).reverse
+    else
+      render json: Mark.all.sort_by(&:id).reverse
+    end
   end
 
   def create
@@ -12,7 +16,16 @@ class MarksController < ApplicationController
     end
   end
 
+  def update
+    Mark.unsaved.update_all(:saved => true)
+    render json: all_marks
+  end
+
   def mark_params
     params[:mark].permit!
+  end
+
+  def all_marks
+    Mark.all.sort_by(&:id).reverse
   end
 end
